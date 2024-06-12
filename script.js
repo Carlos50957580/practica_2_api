@@ -21,7 +21,7 @@ const usersContainer = document.getElementById('users_div');
                             <h5 class="card-title">Dirección: ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</h5>
                             <h5 class="card-title">Número de teléfono: ${user.phone}</h5>
                             <h5 class="card-title">Website: ${user.website}</h5>
-                            <a href="Todos.html?userId=${user.id}" class="btn btn-primary">Ver quehaceres</a>
+                            <a href="Todos.html?userId=${user.id}" class="btn btn-primary">Ver Todos</a>
                             <a href="albums.html?userId=${user.id}" class="btn btn-primary">Ver álbumes</a>
                             <a href="posts.html?userId=${user.id}" class="btn btn-primary">Ver posts</a>
                         </div>

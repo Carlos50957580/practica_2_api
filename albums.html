@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Álbumes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h1>albunes</h1>
+    <div class="container">
+        <h1 class="my-4">Álbumes</h1>
+        <div id="albums_div" class="row g-4"></div>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get('userId');
+        const apiurl = `https://jsonplaceholder.typicode.com/albums?userId=${userId}`;
+        const albumsContainer = document.getElementById('albums_div');
+
+        async function getAlbums() {
+            const response = await fetch(apiurl);
+            const data = await response.json();
+            displayAlbums(data);
+            console.log(data);
+        }
+
+        function displayAlbums(albums) {
+            albumsContainer.innerHTML = "";
+            albums.forEach(album => {
+                 const albumDiv = document.createElement('div');
+                albumDiv.classList.add('col-md-4');
+                albumDiv.innerHTML = `
+                    <div class="card h-100"> 
+                        <div class="card-body">
+                        <h5 class="card-title">id del usuario: ${album.userId}</h5>
+                        <a href="">h5 class="card-title">Título: ${album.title}</h5>
+                        </div>
+                    </div> 
+                `;
+                albumsContainer.appendChild(albumDiv);
+            });
+        }
+
+        getAlbums();
+    </script>
 </body>
 </html>
+
