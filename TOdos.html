@@ -31,7 +31,7 @@
                 const todoDiv = document.createElement('div');
                 todoDiv.classList.add('col-md-4');
                 todoDiv.innerHTML = `
-                    <div class="card h-100">
+                    <div class="card h-100 ${todo.completed ? 'true' : 'false'}">
                         <div class="card-body">
                             <h5 class="card-title">Id del usuario: ${todo.userId}</h5>
                             <h5 class="card-title">Título: ${todo.title}</h5>
