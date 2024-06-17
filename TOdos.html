@@ -39,8 +39,10 @@
         }
 
         function displayTodos(todos) {
+            todos.sort((a, b) => a.title.localeCompare(b.title)); 
+
             todosContainer.innerHTML = "";
-            todos.forEach(todo => {
+            todos.map(todo => {
                 const todoDiv = document.createElement('div');
                 todoDiv.classList.add('col-md-4');
                 todoDiv.innerHTML = `

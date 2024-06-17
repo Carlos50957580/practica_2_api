@@ -9,13 +9,16 @@ const usersContainer = document.getElementById('users_div');
         }
 
         function displayUsers(users) {
+            users.sort((a, b) => a.name.localeCompare(b.name)); 
+
             usersContainer.innerHTML = "";
-            users.forEach(user => {
+            users.map(user => {
                 const usersDiv = document.createElement('div');
                 usersDiv.classList.add('col-md-4');
                 usersDiv.innerHTML = `
                     <div class="card h-100">
                         <div class="card-body">
+
                             <h5 class="card-title">Nombre: ${user.name}</h5>
                             <h5 class="card-title">Email: ${user.email}</h5>
                             <h5 class="card-title">Dirección: ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</h5>
